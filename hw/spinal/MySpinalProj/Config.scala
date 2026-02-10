@@ -10,5 +10,12 @@ object Config {
     ),
     onlyStdLogicVectorAtTopLevelIo = false
   )
+}
 
+object verilog {
+  def apply[T <: Module](gen: => T) = Config.spinal.generateVerilog(gen)
+}
+
+object vhdl {
+  def apply[T <: Module](gen: => T) = Config.spinal.generateVhdl(gen)
 }
